@@ -1,28 +1,36 @@
 # GeoMock
 
-Developing Geo-aware Apps/Games can be such a pain in the ass.
-
-It can take ages until the device finally gets a decent signal or it's raining outside and you don't want to run around out in that bad weather to test your app or maybe you're just too lazy to walk a mile or two ;)
-
-GeoMock can help in many ways when working with the Geolocation API:
-	- Predefined locations can fire up through the normal Geolocation API after a certain delay or even immediately
-	- It also allows you to define a set of waypoints that are being propagated through `geolocation.watchPosition`.
-	- It can be used to test the way your app behaves when no signal could be retrieved
+This is an updated fork to the original GeoMock from [https://github.com/janmonschke/GeoMock](janmonschke/GeoMock) with added failure and recovery option to simulate all cases in Geolocation API environment.
 
 ## Usage
 
-Simply include geomock.js in your website and it will replace the native Geolocation object. There is no need to change the API for tests because it mocks the Geolocation API.
+```
+// setup the interval for watchPosition()
+navigator.geolocation.delay = 1000;
 
-To retrieve a location user `navigator.geolocation.getCurrentPosition(success, error)` or `navigator.geolocation.watchPosition(success, error)`.
+// failure and recovery 
+navigator.geolocation.shouldFail = true;
+navigator.geolocation.failsAfterSteps = 6;
+navigator.geolocation.recoversAfterSteps = 3;
 
-The mock-locations can be changed by accessing the `navigator.geolocation.waypoints`-Array.
+// custom error message
+navigator.geolocation.errorMessage = "There was an error retrieving the position!";
 
-The predefined delay is 1000ms. Change it like this `navigator.geolocation.delay = 2000;`.
+// waypoints - array of Position object.
+navigator.geolocation.waypoints = [
+	{
+        coords: {
+            latitude: 41.980532,
+            longitude: -87.962401,
+            heading: NaN,
+            accuracy: 65
+        },
+        timestamp: 123456789
+    },
+    ...
+];
 
-To test failing requests, set `navigator.geolocation.shouldFail` to `true`.
-
-## Example
-[http://janmonschke.com/GeoMock/example.html](http://janmonschke.com/GeoMock/example.html)
+```
 
 ## License
 MIT
