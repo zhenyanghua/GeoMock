@@ -4,7 +4,7 @@ This is an updated fork to the original GeoMock from [https://github.com/janmons
 
 ## Usage
 
-```
+```JavaScript
 // setup the interval for watchPosition()
 navigator.geolocation.delay = 1000;
 
