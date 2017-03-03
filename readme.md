@@ -1,6 +1,6 @@
 # GeoMock
 
-This is an updated fork to the original GeoMock from [https://github.com/janmonschke/GeoMock](janmonschke/GeoMock) with added failure and recovery option to simulate all cases in Geolocation API environment.
+This is an updated fork to the original GeoMock from [janmonschke/GeoMock](https://github.com/janmonschke/GeoMock) with added failure and recovery option to simulate all cases in Geolocation API environment.
 
 ## Usage
 
