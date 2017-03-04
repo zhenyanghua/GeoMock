@@ -34,7 +34,6 @@
                             _this.currentTimeout = window[method].call(null, function() {
                                 if (recoversAfterSteps === -1) {
                                     clearInterval(_this.currentTimeout);
-                                    failsAfterSteps = _this.failsAfterSteps, recoversAfterSteps = _this.recoversAfterSteps;
                                     return _this._geoCall(method, success, error);
                                 }
                                 recoversAfterSteps--;
