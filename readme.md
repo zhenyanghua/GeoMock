@@ -3,7 +3,15 @@
 This is an updated fork to the original GeoMock from [janmonschke/GeoMock](https://github.com/janmonschke/GeoMock) with added failure and recovery option to simulate all cases in Geolocation API environment.
 
 ## Usage
+To import just add the script to the index.html before your entry point. Make sure you remove it after testing or in production.
 
+```html
+<!-- the script should be loaded before your application entry point -->
+<script src="path/to/geomock.js"></script>
+<!-- your application main entry point -->
+<script src="app_or_bundle.js"></script>
+```
+## Configuration
 ```JavaScript
 // setup the interval for watchPosition()
 navigator.geolocation.delay = 1000;
